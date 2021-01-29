@@ -1,1 +1,1 @@
-LittleHomebrewHelper
+LittleHomebrewHelper is a tool that tries to provide a character manager for players aswell as a campain manager for gamemasters. By itself this application serves no use, you should look at the documentation on how to create your own homebrew sources or find pre prepared ones somewhere else. This project does not condone the stealing of licensed game materials. Please support the people who create the games we all enjoy so much.
