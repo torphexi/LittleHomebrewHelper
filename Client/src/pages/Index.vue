@@ -1,5 +1,6 @@
 <template>
   <q-page class="row items-center justify-evenly">
+    <p>Character selection page </p>
     <example-component
       title="Example component"
       active

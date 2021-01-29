@@ -25,12 +25,11 @@
       bordered
       content-class="bg-grey-1"
     >
+    <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
       <q-list>
         <q-item-label
-          header
           class="text-grey-8"
         >
-          Essential Links
         </q-item-label>
         <EssentialLink
           v-for="link in essentialLinks"
@@ -38,6 +37,16 @@
           v-bind="link"
         />
       </q-list>
+    </q-scroll-area>
+            <q-img class="absolute-top" src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
+          <div class="absolute-bottom bg-transparent">
+            <q-avatar size="56px" class="q-mb-sm">
+              <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+            </q-avatar>
+            <div class="text-weight-bold">Drovuum</div>
+            <div>Cleric</div>
+          </div>
+        </q-img>
     </q-drawer>
 
     <q-page-container>
@@ -51,46 +60,40 @@ import EssentialLink from 'components/EssentialLink.vue'
 
 const linksData = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
+    title: 'Overview',
+    caption: 'Character Overview',
     icon: 'school',
-    link: 'https://quasar.dev'
+    link: '/overview'
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
+    title: 'Build',
+    caption: 'Character Settings',
     icon: 'code',
-    link: 'https://github.com/quasarframework'
+    link: '/build'
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
+    title: 'Inventory',
+    caption: 'Loot',
     icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    link: '/inventory'
   },
   {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
+    title: 'Spells',
+    caption: 'magic n shit',
     icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
+    link: '/spells'
   },
   {
-    title: 'Twitter',
-    caption: '@quasarframework',
+    title: 'Misc',
+    caption: 'other',
     icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
+    link: '/misc'
   },
   {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
+    title: 'Settings',
+    caption: 'sources',
     icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
+    link: '/settings'
   }
 ]
 
