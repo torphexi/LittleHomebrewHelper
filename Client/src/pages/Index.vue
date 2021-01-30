@@ -3,7 +3,3 @@
     <p>Character Selection </p>
   </q-page>
 </template>
-
-<script lang="ts">
-
-</script>

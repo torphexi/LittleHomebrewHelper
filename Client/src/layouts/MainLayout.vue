@@ -42,14 +42,38 @@
         style="height: 150px"
       >
         <div class="absolute-bottom bg-transparent">
-          <q-avatar
-            size="56px"
-            class="q-mb-sm"
+          <q-card
+            class="my-card"
+            flat
+            bordered
+            style="height: 120px"
           >
-            <img src="https://cdn.quasar.dev/img/boy-avatar.png">
-          </q-avatar>
-          <div class="text-weight-bold">Drovuum</div>
-          <div>Cleric</div>
+            <q-item>
+              <q-item-section avatar>
+                <q-avatar>
+                  <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+                </q-avatar>
+              </q-item-section>
+
+              <q-item-section>
+                <q-item-label style="color: #282828; font-weight:bold; font-size:20px;">Drovuum</q-item-label>
+              </q-item-section>
+            </q-item>
+
+            <q-separator />
+
+            <q-card-section horizontal>
+              <q-card-section style="color: #282828; font-weight:bold; font-size:20px;">
+                1
+              </q-card-section>
+
+              <q-separator vertical />
+
+              <q-card-section style="color: #282828; font-weight:bold; font-size:20spx;">
+                Loxadon Cleric
+              </q-card-section>
+            </q-card-section>
+          </q-card>
         </div>
       </q-img>
     </q-drawer>
