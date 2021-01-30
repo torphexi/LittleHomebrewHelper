@@ -50,9 +50,14 @@
           >
             <q-item>
               <q-item-section avatar>
-                <q-avatar>
-                  <img src="https://cdn.quasar.dev/img/boy-avatar.png">
-                </q-avatar>
+                <q-btn
+                  round
+                  to="/"
+                >
+                  <q-avatar>
+                    <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+                  </q-avatar>
+                </q-btn>
               </q-item-section>
 
               <q-item-section>
