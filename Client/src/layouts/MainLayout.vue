@@ -25,28 +25,33 @@
       bordered
       content-class="bg-grey-1"
     >
-    <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
-      <q-list>
-        <q-item-label
-          class="text-grey-8"
-        >
-        </q-item-label>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-scroll-area>
-            <q-img class="absolute-top" src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
-          <div class="absolute-bottom bg-transparent">
-            <q-avatar size="56px" class="q-mb-sm">
-              <img src="https://cdn.quasar.dev/img/boy-avatar.png">
-            </q-avatar>
-            <div class="text-weight-bold">Drovuum</div>
-            <div>Cleric</div>
-          </div>
-        </q-img>
+      <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
+        <q-list>
+          <q-item-label class="text-grey-8">
+          </q-item-label>
+          <EssentialLink
+            v-for="link in essentialLinks"
+            :key="link.title"
+            v-bind="link"
+          />
+        </q-list>
+      </q-scroll-area>
+      <q-img
+        class="absolute-top"
+        src="https://cdn.quasar.dev/img/material.png"
+        style="height: 150px"
+      >
+        <div class="absolute-bottom bg-transparent">
+          <q-avatar
+            size="56px"
+            class="q-mb-sm"
+          >
+            <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+          </q-avatar>
+          <div class="text-weight-bold">Drovuum</div>
+          <div>Cleric</div>
+        </div>
+      </q-img>
     </q-drawer>
 
     <q-page-container>
@@ -56,7 +61,7 @@
 </template>
 
 <script lang="ts">
-import EssentialLink from 'components/EssentialLink.vue'
+import EssentialLink from '../components/EssentialLink.vue'
 
 const linksData = [
   {
@@ -103,7 +108,7 @@ import { Vue, Component } from 'vue-property-decorator'
   components: { EssentialLink }
 })
 export default class MainLayout extends Vue {
-  leftDrawerOpen = false;
-  essentialLinks = linksData;
+  leftDrawerOpen = false
+  essentialLinks = linksData
 }
 </script>
