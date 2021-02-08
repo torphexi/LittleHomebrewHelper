@@ -12,6 +12,8 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import * as xml from 'xml-js'
+import * as XmlParser from '../../../Shared/XmlParser/XmlParser'
 
 @Component
 export default class Uploader extends Vue {
@@ -22,12 +24,7 @@ export default class Uploader extends Vue {
 
   inputSelected (e: File[]) {
     e.forEach((el: File) => {
-      console.log(el.name)
-      const read = new FileReader()
-      read.readAsBinaryString(el)
-      read.onloadend = function () {
-        console.log(read.result)
-      }
+      XmlParser.XmlParser.parseFile(el)
     })
   }
 }
