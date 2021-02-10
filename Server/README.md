@@ -1,45 +1,55 @@
-# electron-quick-start
+# :nut_and_bolt: Electron-Vue-TypeScript Starter
 
-**Clone and run for a quick way to see Electron in action.**
+The Electron Shell starter that'll have you saying "kids these days" faster than you can type `npm start`.
 
-This is a minimal Electron application based on the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start) within the Electron documentation.
+## **WARNING:** Electron Compile (one of the core dependencies of this starter) is no longer being actively maintained. Please consider starting your project using [Electron Forge](https://www.electronforge.io/) directly instead!
 
-**Use this app along with the [Electron API Demos](https://electronjs.org/#get-started) app for API code examples to help you get started.**
+### Features
 
-A basic Electron application needs just these files:
+* All programming/style/markup languages supported by [Electron Compile](https://github.com/electron/electron-compile#electron-compile):
+  * **Programming:** TypeScript, ES6, ES7, CoffeeScript, GraphQL
+  * **Style:** Less, Sass, Stylus
+  * **Markup/other:** Jade, and Vue
+* In particular, TypeScript is tuned to be as strict as possible.
+* Good TypeScript code completion in [VS Code](https://code.visualstudio.com/)! (There were some quirks to work out here)
+* Packaging for distribution with [Electron Forge](https://github.com/electron-userland/electron-forge):
+  * Run `npm run make` to generate distributable packages.
+  * Configure forge by modifying `forge.config.js`.
+* Hot reloading of everything (courtesy of [Electron Compile](https://github.com/electron/electron-compile))
+* VueJS devtools.
 
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
+### How to use
 
-You can learn more about each of these components within the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start).
+Simply fork or [download](https://github.com/bdero/electron-vue-typescript-starter/archive/master.zip) this repo, and start hacking away! Before beginning any work, install all dependencies by running `npm install`.
 
-## To Use
+Available commands:
+* `npm start`: Runs the application with Electron in development mode. Hot reloading as well as the Vue devtools are enabled in this mode.
+* `npm run make`: Builds distributable app packages using [Electron Forge](https://github.com/electron-userland/electron-forge), placing the results in the **out** directory. Note that this will only build packages compatible with the host system running the command; running the build on **macOS** won't produce **GNU/Linux** packages, for example.
+* `npm run lint`: Runs `tslint` over all TypeScript files.
 
-To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+### What might I want to customize first?
 
-```bash
-# Clone this repository
-git clone https://github.com/electron/electron-quick-start
-# Go into the repository
-cd electron-quick-start
-# Install dependencies
-npm install
-# Run the app
-npm start
-```
+* This [readme](README.md)
+* The [LICENSE](LICENSE)
+* The title and description in [package.json](package.json)
+* Your TypeScript [linting preferences](tslint.json)
+* Your [editor preferences](.editorconfig) (indent size, tabs vs spaces, encoding, etc)
+* Your [package export](forge.config.js) settings
 
-Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+### Things to note
 
-## Resources for Learning Electron
+There are three different TypeScript configurations located in this repository, and all three of them are important:
+* [tsconfig.json](tsconfig.json) contains the configuration used by Visual Studio Code or other editors to configure TypeScript checking. This file pulls in additional type information from the [types](types/) directory, which contains a type definition necessary for proper code completion on imported Vue modules in Visual Studio Code.
+* [_compilerc](_compilerc) contains the two type definitions that are actually used when transpiling for use with Electron, one for development (used when running `npm start`) and one for production (used when running `npm run make`).
+* Due to a [known issue](https://github.com/electron-userland/electron-forge/issues/249) with `npm@4` and `@5`, it's advised to use `npm@3` with Electron Forge: ```npm install -g npm@3```
 
-- [electronjs.org/docs](https://electronjs.org/docs) - all of Electron's documentation
-- [electronjs.org/community#boilerplates](https://electronjs.org/community#boilerplates) - sample starter apps created by the community
-- [electron/electron-quick-start](https://github.com/electron/electron-quick-start) - a very basic starter Electron app
-- [electron/simple-samples](https://github.com/electron/simple-samples) - small applications with ideas for taking them further
-- [electron/electron-api-demos](https://github.com/electron/electron-api-demos) - an Electron app that teaches you how to use Electron
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
+### Known issues/future work
 
-## License
+* SCSS works, but the indented Sass format doesn't build properly.
+* It would be nice if this was a vue-cli, cookecutter, or yeoman scaffold.
 
-[CC0 1.0 (Public Domain)](LICENSE.md)
+### Not what you were looking for?
+
+Not interested in using TypeScript with Vue? Prefer to start with something simpler? I recommend checking out the available starter [templates](https://github.com/electron-userland/electron-forge-templates) that [Electron Forge](https://github.com/electron-userland/electron-forge) offers for initializing projects.
+
+Want something with more stuff/customizability/documentation out of the box? Prefer to use Webpack instead of [Electron Compile](https://github.com/electron/electron-compile)? I recommend taking a look at [electron-vue](https://github.com/SimulatedGREG/electron-vue), which allows for scaffolding projects using vue-cli.
