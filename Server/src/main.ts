@@ -9,12 +9,12 @@ ipcMain.on('test', () =>{
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    height: 600,
+    height: 900,
     webPreferences: {
       nodeIntegration: true,
       preload: path.join(__dirname, "preload.js"),
     },
-    width: 800,
+    width: 1600,
   });
 
   // and load the index.html of the app.
@@ -30,10 +30,6 @@ function createWindow () {
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
-
-
-
-
 }
 
 // This method will be called when Electron has finished
