@@ -10,14 +10,14 @@
 }
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    /* min-width: 250px;
+    max-width: 250px; */
     min-height: 100vh;
 }
 
-#sidebar.active {
+/* #sidebar.active {
     margin-left: -250px;
-}
+} */
 
 a[data-toggle="collapse"] {
     position: relative;
@@ -29,15 +29,6 @@ a[data-toggle="collapse"] {
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
-}
-
-@media (max-width: 768px) {
-    #sidebar {
-        margin-left: -250px;
-    }
-    #sidebar.active {
-        margin-left: 0;
-    }
 }
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
