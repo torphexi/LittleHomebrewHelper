@@ -1,10 +1,20 @@
 export interface Class {
   _declaration: Declaration;
   elements: Elements;
+  index?: Index | null;
 }
 export interface Declaration {
   _attributes: Attributes;
 }
+
+export interface Index {
+  files: FileArr;
+}
+
+export interface FileArr{
+  file: File[];
+}
+
 export interface Attributes {
   name: string;
   version: string;
@@ -51,6 +61,7 @@ export interface Update {
 }
 export interface File {
   _attributes: Attributes;
+  url:string;
 }
 
 export interface ElementEntity {
