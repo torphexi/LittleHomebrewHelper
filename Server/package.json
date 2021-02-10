@@ -1,31 +1,30 @@
 {
-  "name": "electron-vue-typescript-starter",
+  "name": "electron-quick-start-typescript",
   "version": "1.0.0",
-  "description": "An Electron starter that supports VueJS + TypeScript.",
-  "main": "src/main.ts",
-  "dependencies": {
-    "electron-compile": "^6.4.3",
-    "electron-squirrel-startup": "^1.0.0",
-    "vue": "^2.4.4",
-    "vueify": "^9.4.1",
-    "electron-devtools-installer": "^2.2.0"
-  },
-  "devDependencies": {
-    "@types/electron-devtools-installer": "^2.0.2",
-    "electron-forge": "^4.0.2",
-    "electron": "1.7.6",
-    "electron-prebuilt-compile": "1.7.6",
-    "tslint": "^5.7.0",
-    "typescript": "^2.5.2"
-  },
+  "description": "A minimal Electron application written with Typescript",
   "scripts": {
-    "start": "node_modules/.bin/electron .",
-    "lint": "node_modules/.bin/tslint --project tsconfig.json --type-check --force",
-    "make": "node_modules/.bin/electron-forge make"
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "eslint -c .eslintrc --ext .ts ./src",
+    "start": "npm run build && electron ./dist/main.js"
   },
-  "author": "Brandon DeRosier",
-  "license": "MIT",
-  "config": {
-    "forge": "./forge.config.js"
-  }
+  "repository": "https://github.com/electron/electron-quick-start-typescript",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo",
+    "typescript"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.4.0",
+    "@typescript-eslint/parser": "^3.4.0",
+    "eslint": "^7.3.1",
+    "electron": "^9.4.0",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {}
 }
