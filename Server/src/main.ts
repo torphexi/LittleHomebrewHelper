@@ -1,12 +1,17 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow , ipcMain} from "electron";
 import * as path from "path";
 import { WindowManager } from './WindowManager';
+
+ipcMain.on('test', () =>{
+  console.log('test')
+})
 
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     height: 600,
     webPreferences: {
+      nodeIntegration: true,
       preload: path.join(__dirname, "preload.js"),
     },
     width: 800,
@@ -15,12 +20,19 @@ function createWindow () {
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, "../index.html"));
 
+  
+  let manager: WindowManager = WindowManager.getInstance();
+
+  mainWindow.webContents.on('dom-ready', () => {
+    manager.Window = mainWindow;
+    manager.setContent('../src/IndexPage/IndexPage.html')
+  });
+
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
-  mainWindow.webContents.send('update', 'test');
 
-  const manger: WindowManager = WindowManager.getInstance();
-  manger.setContent('../src/IndexPage/IndexPage.html')
+
+
 
 }
 

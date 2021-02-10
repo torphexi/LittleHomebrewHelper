@@ -6,9 +6,7 @@ import { BrowserWindow } from 'electron';
 export class WindowManager {
     private static instance: WindowManager;
 
-    public CurrentContent: string;
     public Window: BrowserWindow;
-
 
     public static getInstance (): WindowManager {
         if (!WindowManager.instance) {
@@ -24,8 +22,7 @@ export class WindowManager {
                 console.error(err);
                 return
             }
-            this.CurrentContent = data;
-            
+            this.Window.webContents.send('update', data);
         });
     }
 }
