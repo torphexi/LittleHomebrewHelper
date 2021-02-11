@@ -8,7 +8,7 @@ export class WindowManager {
 
     private constructor(){
         ipcMain.on('pageChange', (event , data) =>{
-            this.setContent(this.getPath(data));
+            this.setContent(data);
         });
     }
     public Window: BrowserWindow;
@@ -20,18 +20,18 @@ export class WindowManager {
         return WindowManager.instance;
     }
 
-    public setContent (htmlPath: string) {
+    public setContent (page: string):void {
 
-        fs.readFile(path.join(__dirname, htmlPath), 'utf8', (err, data) => {
-            if (err) {
-                console.error(err);
-                return
-            }
-            this.Window.webContents.send('update', data);
-        });
+        // fs.readFile(path.join(__dirname, htmlPath), 'utf8', (err, data) => {
+        //     if (err) {
+        //         console.error(err);
+        //         return
+        //     }
+            this.Window.webContents.send('update', this.getPath(page));
+        // });
     }
 
     private getPath(name: string):string{
-        return '../src/'+name+'/'+name+'.html'
+        return path.join(__dirname ,'../src/'+ name+'/'+name+'.html');
     }
 }

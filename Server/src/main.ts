@@ -12,6 +12,7 @@ function createWindow () {
     height: 900,
     webPreferences: {
       nodeIntegration: true,
+      webviewTag: true,
       preload: path.join(__dirname, "preload.js"),
     },
     width: 1600,
@@ -21,11 +22,11 @@ function createWindow () {
   mainWindow.loadFile(path.join(__dirname, "../index.html"));
 
   
-  let manager: WindowManager = WindowManager.getInstance();
+  const manager: WindowManager = WindowManager.getInstance();
 
   mainWindow.webContents.on('dom-ready', () => {
     manager.Window = mainWindow;
-    manager.setContent('../src/IndexPage/IndexPage.html')
+    manager.setContent('IndexPage');
   });
 
   // Open the DevTools.
