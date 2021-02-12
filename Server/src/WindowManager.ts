@@ -1,17 +1,17 @@
 import * as fs from 'fs';
 import * as path from "path";
-import { BrowserWindow, ipcMain } from 'electron';
+import { ipcMain } from 'electron';
+import { WindowContainer } from './WindowContainer';
 
 
 export class WindowManager {
     private static instance: WindowManager;
 
-    private constructor(){
-        ipcMain.on('pageChange', (event , data) =>{
+    private constructor() {
+        ipcMain.on('pageChange', (event, data) => {
             this.setContent(data);
         });
     }
-    public Window: BrowserWindow;
 
     public static getInstance (): WindowManager {
         if (!WindowManager.instance) {
@@ -20,18 +20,11 @@ export class WindowManager {
         return WindowManager.instance;
     }
 
-    public setContent (page: string):void {
-
-        // fs.readFile(path.join(__dirname, htmlPath), 'utf8', (err, data) => {
-        //     if (err) {
-        //         console.error(err);
-        //         return
-        //     }
-            this.Window.webContents.send('update', this.getPath(page));
-        // });
+    public setContent (page: string): void {
+        WindowContainer.getInstance().Window.webContents.send('update', this.getPath(page));
     }
 
-    private getPath(name: string):string{
-        return path.join(__dirname ,'../src/'+ name+'/'+name+'.html');
+    private getPath (name: string): string {
+        return path.join(__dirname, '../src/' + name + '/' + name + '.html');
     }
 }

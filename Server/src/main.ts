@@ -1,6 +1,11 @@
+require('./PageManager');
+
 import { app, BrowserWindow , ipcMain} from "electron";
 import * as path from "path";
 import { WindowManager } from './WindowManager';
+import { WindowContainer } from "./WindowContainer";
+
+
 
 ipcMain.on('test', () =>{
   console.log('test')
@@ -9,13 +14,13 @@ ipcMain.on('test', () =>{
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    height: 900,
+    height: 700,
     webPreferences: {
       nodeIntegration: true,
       webviewTag: true,
       preload: path.join(__dirname, "preload.js"),
     },
-    width: 1600,
+    width: 1200,
   });
 
   // and load the index.html of the app.
@@ -25,7 +30,7 @@ function createWindow () {
   const manager: WindowManager = WindowManager.getInstance();
 
   mainWindow.webContents.on('dom-ready', () => {
-    manager.Window = mainWindow;
+    WindowContainer.getInstance().Window = mainWindow;
     manager.setContent('IndexPage');
   });
 
