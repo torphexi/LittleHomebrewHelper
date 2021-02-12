@@ -5,14 +5,9 @@ import * as path from "path";
 import { WindowManager } from './WindowManager';
 import { WindowContainer } from "./WindowContainer";
 
-
-
-ipcMain.on('test', () =>{
-  console.log('test')
-})
-
 function createWindow () {
   // Create the browser window.
+  console.log(__dirname );
   const mainWindow = new BrowserWindow({
     height: 700,
     webPreferences: {
@@ -24,6 +19,7 @@ function createWindow () {
   });
 
   // and load the index.html of the app.
+  console.log(__dirname);
   mainWindow.loadFile(path.join(__dirname, "../index.html"));
 
   

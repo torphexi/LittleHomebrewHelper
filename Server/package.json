@@ -1,78 +1,38 @@
 {
   "name": "LittleHomebrewHelper",
-  "version": "0.0.1",
-  "description": "A basic campaign manager for homebrew games",
+  "version": "1.0.0",
+  "description": "Basic campaign manager",
+  "main": "dist/main.js",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "lint": "eslint -c .eslintrc --ext .ts ./src",
-    "start": "npm run build && electron ./dist/main.js",
-    "dist": "electron-webpack && electron-builder"
+    "start": "electron .",
+    "prestart": "npm run build",
+    "package": "npm run build && electron-builder build",
+    "postinstall": "electron-builder install-app-deps",
+    "lint": "eslint src/**/*.ts --quiet --fix",
+    "clean": "rimraf ./dist ./release"
   },
   "repository": "https://github.com/torphexi/LittleHomebrewHelper",
   "keywords": [
     "Electron",
     "typescript"
   ],
-  "author": "Torphexi",
-  "license": "MIT",
-  "electronWebpack": {
-    "commonSourceDirectory": "./src",
-    "title": true,
-    "main": {
-      "sourceDirectory": "src"
-    },
-    "renderer": {
-      "sourceDirectory": "src"
-    }
+  "author": {
+    "name": "torphexi"
   },
-  "build": {
-    "appId": "LittleHomebrewHelper",
-    "dmg": {
-      "contents": [
-        {
-          "x": 110,
-          "y": 150
-        },
-        {
-          "x": 240,
-          "y": 150,
-          "type": "link",
-          "path": "/Applications"
-        }
-      ]
-    },
-    "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ]
-    },
-    "win": {
-      "target": "squirrel",
-      "icon": "build/icon.ico"
-    }
-  },
-  "dependencies": {},
+  "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "latest",
-    "electron-builder": "latest"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.4.0",
-    "@typescript-eslint/parser": "^3.4.0",
-    "electron": "^9.4.0",
-    "electron-builder": "^22.9.1",
-    "electron-webpack": "^2.8.2",
-    "electron-webpack-ts": "^4.0.1",
-    "eslint": "^7.3.1",
-    "typescript": "^3.9.5",
-    "webpack": "^5.21.2"
-  },
-  "dependencies": {
+    "@types/node": "^14.14.27",
+    "@typescript-eslint/eslint-plugin": "^4.15.0",
+    "@typescript-eslint/parser": "^4.15.0",
     "bootstrap": "^4.6.0",
+    "electron": "^11.2.3",
+    "electron-builder": "^22.9.1",
+    "eslint": "^7.19.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
-    "ts-loader": "^8.0.17"
+    "rimraf": "^3.0.2",
+    "typescript": "^4.1.5"
   }
 }

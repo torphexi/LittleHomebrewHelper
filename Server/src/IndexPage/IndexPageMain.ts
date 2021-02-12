@@ -1,4 +1,3 @@
-import { WindowContainer } from './../WindowContainer';
 import { ipcMain } from 'electron';
 
 
